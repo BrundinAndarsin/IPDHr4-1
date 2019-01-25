@@ -5,14 +5,19 @@
 #     strategy_description: a string
 #     move: A function that returns 'c' or 'b'
 ####
+import random
 
 team_name = 'Brandon Andersons Team'
 strategy_name = 'Figure Out Trust'
 strategy_description = 'Conclude until the betray; Then always betray.'
     
 def move(my_history, their_history, my_score, their_score):
-    if len(my_history) == 0:
-       return 'c' 
+    random_number = random.randint(1,2)
+    
+    if len(my_history) == 0 and random_number == 1:
+       return 'c'
+    if len(my_history) == 0 and random_number == 2:
+       return 'b'   
     elif their_history[-1] == 'c' and my_history[-1] == 'c':
         return 'c'
     else: 
